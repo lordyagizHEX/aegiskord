@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AegisControl</title>
+    <title>AegisControl | Ana Sayfa</title>
     <style>
         * {
             margin: 0;
@@ -12,251 +12,433 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-            background: #0D1117;
-            color: #E6EDF3;
-            line-height: 1.5;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: #0A0C10;
+            color: #EAECF0;
+            scroll-behavior: smooth;
+        }
+
+        /* Gradient arkaplan */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(30, 110, 180, 0.08), transparent 60%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 0 2rem;
         }
 
-        /* Header */
-        .header {
-            text-align: center;
-            padding: 3rem 1rem 2rem;
-        }
-
-        .logo {
-            display: inline-flex;
+        /* ========= NAVBAR ========= */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 12px;
-            background: #161B22;
-            padding: 0.6rem 1.8rem;
-            border-radius: 60px;
-            border: 1px solid #2D3A4A;
-            margin-bottom: 2rem;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(60, 70, 90, 0.4);
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .logo span:first-child {
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
             font-size: 28px;
+            background: linear-gradient(135deg, #2D8CFF, #5C3EFF);
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 14px rgba(45, 140, 255, 0.25);
         }
 
-        .logo span:last-child {
-            font-size: 22px;
+        .logo-text {
+            font-size: 1.5rem;
             font-weight: 700;
-            color: #58A6FF;
+            letter-spacing: -0.3px;
+            background: linear-gradient(115deg, #FFFFFF, #A0C0F0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #B0B8C5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #2D8CFF;
+        }
+
+        /* ========= HERO ========= */
+        .hero {
+            text-align: center;
+            padding: 4rem 0 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3.7rem;
+            font-weight: 800;
+            background: linear-gradient(130deg, #FFFFFF, #90B4E8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
             margin-bottom: 1rem;
-            letter-spacing: -0.5px;
         }
 
-        .tagline {
+        .hero p {
             font-size: 1.1rem;
-            color: #8B949E;
-            max-width: 550px;
-            margin: 0 auto 1rem;
+            color: #8F9BB0;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .version {
-            font-size: 0.8rem;
-            color: #58A6FF;
-            background: #161B22;
+        /* ========= İNDİRME KARTI ========= */
+        .download-card {
+            background: linear-gradient(135deg, #12161F, #0E1219);
+            border-radius: 2rem;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #252E3F;
+            margin: 2rem 0;
+            box-shadow: 0 20px 35px -15px rgba(0,0,0,0.5);
+        }
+
+        .version-badge {
+            background: #1E2A3A;
             display: inline-block;
             padding: 0.2rem 1rem;
-            border-radius: 20px;
-        }
-
-        /* İndirme butonu */
-        .download-box {
-            text-align: center;
-            margin: 2rem 0 1rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            color: #6E8BB8;
+            margin-bottom: 1rem;
         }
 
         .download-btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: #238636;
+            background: linear-gradient(95deg, #2D8CFF, #5C3EFF);
             color: white;
-            padding: 0.9rem 2.5rem;
-            border-radius: 40px;
+            padding: 1rem 3rem;
+            border-radius: 60px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.2rem;
+            margin: 1rem 0;
             transition: 0.2s;
-            border: 1px solid #2EA043;
+            box-shadow: 0 6px 18px rgba(45, 140, 255, 0.3);
         }
 
         .download-btn:hover {
-            background: #2EA043;
             transform: scale(1.02);
+            box-shadow: 0 12px 28px rgba(45, 140, 255, 0.5);
         }
 
-        .file-info {
+        .file-meta {
             font-size: 0.75rem;
-            color: #6E7681;
-            margin-top: 0.8rem;
+            color: #5F6E84;
         }
 
-        /* Kartlar */
-        .section {
-            margin: 4rem 0;
+        /* ========= SEKMELER (TABS) ========= */
+        .tabs-container {
+            margin: 3rem 0 2rem;
         }
 
-        .section-title {
-            font-size: 1.6rem;
+        .tabs-header {
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: 1px solid #222A38;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 1.8rem;
-            border-left: 4px solid #58A6FF;
-            padding-left: 1rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: #161B22;
-            padding: 1.6rem;
-            border-radius: 1.2rem;
-            border: 1px solid #21262D;
+            color: #8B99AE;
+            cursor: pointer;
             transition: 0.2s;
+            border-radius: 40px 40px 0 0;
         }
 
-        .card:hover {
-            border-color: #58A6FF;
+        .tab-btn:hover {
+            color: #2D8CFF;
+            background: #12171F;
         }
 
-        .card h3 {
+        .tab-btn.active {
+            color: #2D8CFF;
+            border-bottom: 2px solid #2D8CFF;
+            background: #0F141C;
+        }
+
+        .tab-content {
+            display: none;
+            background: #0E1219;
+            border-radius: 0 1.5rem 1.5rem 1.5rem;
+            padding: 2rem;
+            margin-top: 0.5rem;
+            border: 1px solid #222A38;
+            animation: fade 0.25s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fade {
+            from { opacity: 0; transform: translateY(6px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        /* Kart grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .pro-card {
+            background: #11161F;
+            border-radius: 1.5rem;
+            padding: 1.6rem;
+            transition: all 0.2s;
+            border: 1px solid #212937;
+        }
+
+        .pro-card:hover {
+            border-color: #2D8CFF;
+            transform: translateY(-4px);
+        }
+
+        .pro-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .pro-card h3 {
             font-size: 1.3rem;
-            margin-bottom: 0.6rem;
-            color: #58A6FF;
+            margin-bottom: 0.5rem;
         }
 
-        .card p {
-            color: #B1BAC4;
-            font-size: 0.9rem;
+        .pro-card p {
+            font-size: 0.85rem;
+            color: #9AA5B9;
             line-height: 1.4;
         }
 
-        .emoji-big {
-            font-size: 2rem;
-            margin-bottom: 0.8rem;
-            display: block;
+        /* Liste stili */
+        .step-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #11161F;
+            padding: 1rem 1.5rem;
+            border-radius: 1.2rem;
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #1E2A3A;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #2D8CFF;
         }
 
         /* Footer */
         .footer {
             text-align: center;
             padding: 2rem 0;
-            margin-top: 3rem;
-            border-top: 1px solid #21262D;
+            margin-top: 4rem;
+            border-top: 1px solid #1A212E;
             font-size: 0.75rem;
-            color: #6E7681;
+            color: #5C6A82;
         }
 
-        @media (max-width: 650px) {
-            h1 { font-size: 2rem; }
-            .container { padding: 1rem; }
-            .download-btn { padding: 0.7rem 1.8rem; font-size: 1rem; }
+        @media (max-width: 750px) {
+            .container { padding: 0 1.2rem; }
+            .hero h1 { font-size: 2.1rem; }
+            .navbar { flex-direction: column; }
+            .tab-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Logo ve başlık -->
-        <div class="header">
-            <div class="logo">
-                <span>⚔️</span>
-                <span>AEGISCONTROL</span>
+        <!-- Navigasyon -->
+        <div class="navbar">
+            <div class="logo-area">
+                <div class="logo-icon">⚔️</div>
+                <div class="logo-text">AEGISCONTROL</div>
             </div>
+            <div class="nav-links">
+                <a href="#">Ana Sayfa</a>
+                <a href="#ozellikler">Özellikler</a>
+                <a href="#indir">İndir</a>
+            </div>
+        </div>
+
+        <!-- Hero -->
+        <div class="hero">
             <h1>Kontrol sende.</h1>
-            <div class="tagline">
-                Hızlı, hafif ve kullanışlı. İhtiyacın olan her şey tek bir pencerede.
-            </div>
-            <div class="version">v1.0</div>
+            <p>Sade, hızlı ve güvenilir. Windows için tasarlanmış modern kontrol arayüzü.</p>
         </div>
 
-        <!-- İndirme -->
-        <div class="download-box">
+        <!-- İndirme Kartı -->
+        <div id="indir" class="download-card">
+            <div class="version-badge">Kararlı sürüm v1.0</div>
+            <h2 style="margin-bottom: 0.5rem;">AegisControl</h2>
+            <div class="file-meta">Windows 10/11 • 69 MB • Taşınabilir</div>
             <a href="https://www.mediafire.com/file/d1dtpvqs3z457aj/AegisControl%25282%2529.exe/file" class="download-btn">
-                ⬇️ Windows için indir
+                ⬇️ İndir (EXE)
             </a>
-            <div class="file-info">
-                AegisControl.exe • 69 MB • Windows 10/11
+            <div class="file-meta">Kurulum gerekmez. Çift tıkla başlat.</div>
+        </div>
+
+        <!-- SEKMELİ İÇERİK (TABS) -->
+        <div class="tabs-container" id="ozellikler">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="tab1">🚀 Öne Çıkanlar</button>
+                <button class="tab-btn" data-tab="tab2">📋 Kullanım</button>
+                <button class="tab-btn" data-tab="tab3">⚙️ Sistem</button>
+            </div>
+
+            <!-- Tab 1 -->
+            <div class="tab-content active" id="tab1">
+                <div class="features-grid">
+                    <div class="pro-card">
+                        <div class="pro-icon">📦</div>
+                        <h3>Tek dosya</h3>
+                        <p>Kurulum yok, karmaşa yok. İndir ve çalıştır.</p>
+                    </div>
+                    <div class="pro-card">
+                        <div class="pro-icon">🎨</div>
+                        <h3>Modern tema</h3>
+                        <p>Koyu renk, göz yormayan tasarım.</p>
+                    </div>
+                    <div class="pro-card">
+                        <div class="pro-icon">⚡</div>
+                        <h3>Düşük kaynak</h3>
+                        <p>Hafif yapısı sayesinde arka planda rahat çalışır.</p>
+                    </div>
+                    <div class="pro-card">
+                        <div class="pro-icon">🔒</div>
+                        <h3>Giriş paneli</h3>
+                        <p>Kullanıcı oturumu ve lisans kontrolü.</p>
+                    </div>
+                    <div class="pro-card">
+                        <div class="pro-icon">🖱️</div>
+                        <h3>Kolay navigasyon</h3>
+                        <p>Yan menü, hızlı erişim butonları.</p>
+                    </div>
+                    <div class="pro-card">
+                        <div class="pro-icon">🛡️</div>
+                        <h3>Güvenlik katmanı</h3>
+                        <p>Doğrulama sistemi mevcut.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Kullanım -->
+            <div class="tab-content" id="tab2">
+                <div class="step-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div><strong>Dosyayı indir</strong><br>Bu sayfadaki indir butonuna tıkla.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div><strong>Çalıştır</strong><br>İndirilen AegisControl.exe dosyasını aç.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div><strong>Giriş yap</strong><br>Kullanıcı bilgilerinle panele eriş.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div><strong>Yönet</strong><br>Tüm kontroller ana ekranda.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: Sistem gereksinimleri -->
+            <div class="tab-content" id="tab3">
+                <div class="features-grid">
+                    <div class="pro-card">
+                        <h3>🪟 İşletim sistemi</h3>
+                        <p>Windows 10, Windows 11</p>
+                    </div>
+                    <div class="pro-card">
+                        <h3>💾 Depolama</h3>
+                        <p>150 MB boş alan</p>
+                    </div>
+                    <div class="pro-card">
+                        <h3>🧠 RAM</h3>
+                        <p>2 GB önerilir</p>
+                    </div>
+                    <div class="pro-card">
+                        <h3>📦 Paket içeriği</h3>
+                        <p>Tek dosya EXE, ek bağımlılık yok.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Özellikler -->
-        <div class="section">
-            <div class="section-title">Neler var?</div>
-            <div class="grid">
-                <div class="card">
-                    <span class="emoji-big">📦</span>
-                    <h3>Tek dosya</h3>
-                    <p>Kurulum yok. İndir, çalıştır, bitir.</p>
-                </div>
-                <div class="card">
-                    <span class="emoji-big">🎨</span>
-                    <h3>Modern arayüz</h3>
-                    <p>Karanlık tema, sade ve anlaşılır.</p>
-                </div>
-                <div class="card">
-                    <span class="emoji-big">⚡</span>
-                    <h3>Hızlı çalışır</h3>
-                    <p>Düşük kaynak tüketimi, anında açılma.</p>
-                </div>
-                <div class="card">
-                    <span class="emoji-big">🔒</span>
-                    <h3>Kullanıcı girişi</h3>
-                    <p>Güvenli oturum yönetimi.</p>
-                </div>
-                <div class="card">
-                    <span class="emoji-big">🛠️</span>
-                    <h3>Lisans desteği</h3>
-                    <p>Doğrulama sistemi mevcut.</p>
-                </div>
-                <div class="card">
-                    <span class="emoji-big">🖥️</span>
-                    <h3>Windows native</h3>
-                    <p>Sorunsuz çalışır, uyumludur.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Kullanım -->
-        <div class="section">
-            <div class="section-title">Nasıl kullanılır?</div>
-            <div class="grid">
-                <div class="card">
-                    <h3>1. İndir</h3>
-                    <p>Dosyayı bilgisayarına kaydet.</p>
-                </div>
-                <div class="card">
-                    <h3>2. Çalıştır</h3>
-                    <p>EXE dosyasına çift tıkla.</p>
-                </div>
-                <div class="card">
-                    <h3>3. Kullan</h3>
-                    <p>Giriş yap ve başla.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer - sade ve temiz -->
+        <!-- alt kısım (footer) -->
         <div class="footer">
             <p>© 2026 AegisControl</p>
         </div>
     </div>
+
+    <script>
+        // Sekme değiştirme scripti
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                tabs.forEach(b => b.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+                
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
